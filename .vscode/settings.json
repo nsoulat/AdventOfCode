@@ -1,0 +1,23 @@
+{
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnType": true,
+        "editor.wordBasedSuggestions": false
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "black-formatter.args": [
+        "--line-length",
+        "88"
+    ],
+    "flake8.args": [
+        "--max-line-length",
+        "88"
+    ],
+    "isort.args": [
+        "--profile",
+        "black"
+    ]
+}
