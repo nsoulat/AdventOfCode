@@ -24,3 +24,6 @@ license = {text = "MIT"}
 line-length = 88
 target-version = ['py312']
 include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+testpaths = 'utils year2022 year2023'
