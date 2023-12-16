@@ -1,4 +1,5 @@
 from utils.day import AbstractDay
+from utils.file import get_sections
 from utils.range import get_distinct_by
 
 
@@ -25,19 +26,6 @@ def get_map_from_section(
         )
 
     return (source, destination, map_)
-
-
-def get_sections(lines: str) -> list[list[int]]:
-    sections: list[list[str]] = []
-    add_to_section = []
-    for i, line in enumerate(lines):
-        if not line:
-            continue
-        add_to_section.append(line)
-        if i == len(lines) - 1 or lines[i + 1] == "":
-            sections.append(add_to_section)
-            add_to_section = []
-    return sections
 
 
 def get_seeds(section: list[str]) -> int:
