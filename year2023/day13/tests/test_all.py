@@ -8,4 +8,4 @@ tests_dir = Path(__file__).parent
 def test_day():
     result_part1, result_part2 = Day.resolve(tests_dir / "test01.txt")
     assert result_part1 == 405, "Part 1 is incorrect"
-    assert result_part2 == 0, "Part 2 is incorrect"
+    assert result_part2 == 400, "Part 2 is incorrect"
