@@ -2,6 +2,7 @@
 
 <https://adventofcode.com>
 
+
 ## Install the project
 
 The project uses `Python 3.12` and [pdm](https://pdm-project.org/latest/) as Python package manager.
@@ -12,6 +13,7 @@ To install all the packages, use:
 pdm install
 ```
 
+
 ## To get result from a specific day
 
 ```sh
@@ -21,6 +23,7 @@ pdm run main.py -d <day: int> -y <year: int> -i <input_filepath>
 If `day` is not given, current `day` will be used. Same for `year`.
 
 If `input_filepath` is not given, the `input.txt` file in the year/day folder will be used (it is the default file created when automatically creating a new day folder)
+
 
 ## To add the template for a new day [NOT YET AVAILABLE]
 
@@ -39,6 +42,7 @@ pdm run main.py new
 ```sh
 pdm run main.py new -d <day: int> -y <year: int>
 ```
+
 
 ## To run tests
 
