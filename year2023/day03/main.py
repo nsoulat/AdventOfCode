@@ -1,57 +1,31 @@
 from collections import defaultdict
-from collections.abc import Iterator
-from dataclasses import dataclass, field
-from itertools import count, product
 
+from utils.class_helper import WithID
 from utils.day import AbstractDay
+from utils.grid2D import Grid as BaseGrid
+from utils.grid2D import Position
 
 EXCLUDED_SYMBOLS = {"."}
-
-
-@dataclass
-class Position:
-    x: int
-    y: int
-
-    def iter_around(self) -> Iterator["Position"]:
-        for dx, dy in product([-1, 0, 1], [-1, 0, 1]):
-            if dx == dy == 0:
-                continue
-            yield Position(self.x + dx, self.y + dy)
-
-    def __hash__(self) -> int:
-        return hash((self.x, self.y))
 
 
 class Symbol:
     pass
 
 
-@dataclass
-class PartNumber:
-    identifier: int = field(default_factory=count().__next__, init=False)
-    number: int
-    adj_symbols: set[Symbol] = field(default_factory=set)
-
-    def __hash__(self) -> int:
-        return self.identifier
+class PartNumber(WithID):
+    def __init__(self, number: int):
+        super().__init__()
+        self.number = number
+        self.adj_symbols: set[Symbol] = set()
 
     def __mul__(self, other: "PartNumber") -> int:
         return self.number * other.number
 
 
-@dataclass
-class Grid:
-    lines: list[str]
-    part_numbers: list[PartNumber] = field(default_factory=list)
-
-    def is_inside(self, position: Position) -> bool:
-        return 0 <= position.y < len(self.lines) and 0 <= position.x < len(
-            self.lines[position.y]
-        )
-
-    def get_from_position(self, position: Position) -> str | None:
-        return self.lines[position.y][position.x] if self.is_inside(position) else None
+class Grid(BaseGrid):
+    def __init__(self, lines: list[str]):
+        super().__init__(lines=lines)
+        self.part_numbers: list[PartNumber] = []
 
 
 def is_digit(grid: Grid, position: Position) -> bool:
