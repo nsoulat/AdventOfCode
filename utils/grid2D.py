@@ -9,6 +9,9 @@ class Directions(Enum):
     UP = (0, -1)
     DOWN = (0, 1)
 
+    def __repr__(self):
+        return str(self)
+
 
 class Position:
     def __init__(self, x: int, y: int) -> None:
@@ -21,8 +24,11 @@ class Position:
                 continue
             yield Position(self.x + dx, self.y + dy)
 
-    def move(self, direction: Directions) -> "Position":
-        return Position(self.x + direction.value[0], self.y + direction.value[1])
+    def move(self, direction: Directions, length: int = 1) -> "Position":
+        return Position(
+            self.x + length * direction.value[0],
+            self.y + length * direction.value[1],
+        )
 
     def __eq__(self, other: "Position") -> bool:
         return (self.x, self.y) == (other.x, other.y)
@@ -45,3 +51,7 @@ class Grid:
 
     def get_from_position(self, position: Position) -> str | None:
         return self.lines[position.y][position.x] if self.is_inside(position) else None
+
+
+def scalar_product(x1, y1, x2, y2) -> int:
+    return x1 * x2 + y1 * y2
