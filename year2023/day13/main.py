@@ -78,7 +78,7 @@ def get_best_reflection(
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         total = 0
         for section in get_sections(lines):
             _, (left_index, _), is_vertical = get_best_reflection(section)
@@ -86,7 +86,7 @@ class Day(AbstractDay):
         return total
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         total = 0
         for section in get_sections(lines):
             best_reflection_length, left_length_of_best, is_best_vertical = 0, 0, True

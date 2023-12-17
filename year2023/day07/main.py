@@ -107,9 +107,9 @@ class Day(AbstractDay):
         return sum([rank * hand.bid for rank, hand in enumerate(hands, 1)])
 
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         return cls._resolve(lines, activate_joker=False)
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         return cls._resolve(lines, activate_joker=True)

@@ -19,7 +19,7 @@ def count_matching_numbers(winning_numbers: list[int], numbers: list[int]) -> in
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         total_points = 0
         for line in lines:
             game_id, winning_numbers, numbers = get_game_id_and_numbers(line)
@@ -28,7 +28,7 @@ class Day(AbstractDay):
         return total_points
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         matching_count_per_game_id = {}
         for line in lines:
             game_id, winning_numbers, numbers = get_game_id_and_numbers(line)

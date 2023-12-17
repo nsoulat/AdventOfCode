@@ -59,7 +59,7 @@ def get_max_by_color(reveals: str) -> bool:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         sum_ids = 0
         for line in lines:
             game, reveals = line.split(": ")
@@ -69,7 +69,7 @@ class Day(AbstractDay):
         return sum_ids
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         sum_powers = 0
         for line in lines:
             _, reveals = line.split(": ")

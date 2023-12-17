@@ -65,7 +65,7 @@ def get_number_by_position(grid: Grid) -> dict[Position, PartNumber]:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         grid = Grid(lines)
         number_by_position = get_number_by_position(grid)
         for y, line in enumerate(grid.lines):
@@ -84,7 +84,7 @@ class Day(AbstractDay):
         )
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         grid = Grid(lines)
         number_by_position = get_number_by_position(grid)
         adj_parts_by_symbols = defaultdict(set)

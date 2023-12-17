@@ -77,7 +77,7 @@ def get_score_for_player2(
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         total_score = 0
         for line in lines:
             original_shape1, original_shape2 = line.split(" ")
@@ -88,7 +88,7 @@ class Day(AbstractDay):
         return total_score
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         total_score = 0
         fun_and_score_by_strategy = {
             "X": (get_shape_for_lose, SCORE_DEFEAT),

@@ -36,7 +36,7 @@ def tilt(lines: list[str]) -> list[str]:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         rotated_lines = rotate_clockwise(lines)
         tilted_lines = tilt(rotated_lines)
         return sum(
@@ -44,7 +44,7 @@ class Day(AbstractDay):
         )
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         index_of_all_possibilities = defaultdict(list)
         current_lines = "\n".join(lines)
         index_of_all_possibilities[current_lines] = [0]

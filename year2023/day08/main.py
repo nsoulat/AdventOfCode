@@ -81,16 +81,15 @@ def end_when_all_end_with_Z(locations: list[str]) -> bool:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         instructions, graph = get_instructions_and_graph(lines)
         return follow_instructions(
             instructions, graph, starts=["AAA"], ending_fun=end_when_reached_ZZZ
         )
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         instructions, graph = get_instructions_and_graph(lines)
-        print(list(graph.keys()))
         return follow_instructions_v2(
             instructions,
             graph,

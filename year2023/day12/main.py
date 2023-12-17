@@ -72,9 +72,9 @@ def count_possibility(lines: list[str], unfold: int = 1) -> int:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         return count_possibility(lines)
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         return count_possibility(lines, unfold=5)

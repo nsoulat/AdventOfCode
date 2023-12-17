@@ -66,9 +66,9 @@ class Day(AbstractDay):
         return reduce(lambda x, y: x * y, count_possibility)
 
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         return cls._resolve(lines, version=1)
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         return cls._resolve(lines, version=2)

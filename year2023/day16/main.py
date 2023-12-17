@@ -79,13 +79,13 @@ def energized(
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         grid = Grid(lines)
         energized_grid = energized(grid)
         return len(energized_grid.keys())
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         max_energized = 0
         grid = Grid(lines)
         starts_with_direction = [

@@ -109,7 +109,7 @@ def get_destination_range_per_range_seeds(
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         sections = get_sections(lines)
         seeds = get_seeds(sections.pop(0))
         conversion_order, conversion_map = get_conversion_order_and_maps(sections)
@@ -151,7 +151,7 @@ class Day(AbstractDay):
         return min(location_per_seed.values())
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         sections = get_sections(lines)
         seed_ranges = get_seeds_by_range(sections.pop(0))
         conversion_order, conversion_map = get_conversion_order_and_maps(sections)

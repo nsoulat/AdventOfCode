@@ -16,7 +16,7 @@ def get_previous_and_next_value(values: list[int], diff: list[int]) -> tuple[int
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         return sum(
             get_previous_and_next_value(line_int, get_diff(line_int))[1]
             for line in lines
@@ -24,7 +24,7 @@ class Day(AbstractDay):
         )
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         return sum(
             get_previous_and_next_value(line_int, get_diff(line_int))[0]
             for line in lines

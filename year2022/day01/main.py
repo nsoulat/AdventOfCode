@@ -11,3 +11,11 @@ class Day(AbstractDay):
             else:
                 total_by_elves[-1] += int(cal)
         return max(total_by_elves)
+
+    @classmethod
+    def resolve_part1(cls, lines: list[str]) -> int:
+        return cls._resolve(lines)
+
+    @classmethod
+    def resolve_part2(cls, lines: list[str]) -> int:
+        return cls._resolve(lines)

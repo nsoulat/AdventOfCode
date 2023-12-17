@@ -134,14 +134,14 @@ def compute_area(lines: list[str], loop: list[Tile]) -> int:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         grid = Grid(lines=lines)
         loop = get_loop(grid)
         # we have visited all the loop, the farthest point is the length divided by 2
         return len(loop) // 2
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         grid = Grid(lines=lines)
         loop = get_loop(grid)
         return compute_area(lines, loop)

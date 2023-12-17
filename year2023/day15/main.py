@@ -12,12 +12,12 @@ def run_HASH(string: str) -> int:
 
 class Day(AbstractDay):
     @classmethod
-    def _resolve_part1(cls, lines: list[str]):
+    def resolve_part1(cls, lines: list[str]):
         steps: list[str] = lines[0].split(",")
         return sum(run_HASH(step) for step in steps)
 
     @classmethod
-    def _resolve_part2(cls, lines: list[str]):
+    def resolve_part2(cls, lines: list[str]):
         steps: list[str] = lines[0].split(",")
         lens_by_box = {box: {"lens": [], "fc_by_label": {}} for box in range(256)}
         for step in steps:
