@@ -35,6 +35,20 @@ def get_exclusive_union(r1: Range, r2: Range) -> tuple[Range | None, Range | Non
     return left_exclusion, right_exclusion
 
 
+def merge(ranges: list[Range]) -> list[Range]:
+    """
+    Merge overlapping ranges
+    """
+    ranges = sorted(ranges, key=lambda r: r[0])
+    new_ranges = []
+    while ranges:
+        new_ranges.append(ranges.pop(0))
+        while ranges and new_ranges[-1][1] >= ranges[0][0]:
+            new_ranges[-1] = (new_ranges[-1][0], max(new_ranges[-1][1], ranges[0][1]))
+            ranges.pop(0)
+    return new_ranges
+
+
 def _cut_ranges(ranges: list[Range], cutting_ranges: list[Range]) -> list[Range]:
     new_ranges = []
     while cutting_ranges:

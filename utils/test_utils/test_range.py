@@ -3,6 +3,7 @@ from utils.range import (
     get_exclusive_union,
     get_global_union,
     get_intersection,
+    merge,
 )
 
 
@@ -34,6 +35,18 @@ def test_get_exclusion_union():
     assert get_exclusive_union((2, 4), (2, 4)) == (None, None)
     assert get_exclusive_union((0, 2), (2, 4)) == ((0, 2), (2, 4))
     assert get_exclusive_union((0, 1), (2, 4)) == ((0, 1), (2, 4))
+
+
+def test_merge():
+    assert merge([(0, 2), (1, 3)]) == [(0, 3)]
+    assert merge([(1, 3), (0, 2)]) == [(0, 3)]
+    assert merge([(1, 3), (1, 4)]) == [(1, 4)]
+    assert merge([(1, 3), (0, 3)]) == [(0, 3)]
+    assert merge([(2, 4), (2, 4)]) == [(2, 4)]
+    assert merge([(0, 2), (2, 4)]) == [(0, 4)]
+    assert merge([(0, 1), (2, 4)]) == [(0, 1), (2, 4)]
+    assert merge([(1, 3)]) == [(1, 3)]
+    assert merge([(1, 3), (4, 5), (-1, 8)]) == [(-1, 8)]
 
 
 def test_get_distinct_by():
