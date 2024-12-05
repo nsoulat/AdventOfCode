@@ -7,7 +7,7 @@ def read_file_line_by_line(filepath: Path) -> list[str]:
     return input_
 
 
-def get_sections(lines: str) -> list[list[str]]:
+def get_sections(lines: list[str]) -> list[list[str]]:
     sections: list[list[str]] = []
     add_to_section = []
     for i, line in enumerate(lines):
