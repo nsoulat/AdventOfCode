@@ -39,6 +39,20 @@ class Position:
     def __repr__(self) -> str:
         return f"Position ({self.x}, {self.y})"
 
+    def __add__(self, other) -> "Position":
+        if isinstance(other, Position):
+            return Position(self.x + other.x, self.y + other.y)
+        if isinstance(other, tuple) and len(other) == 2:
+            return Position(self.x + other[0], self.y + other[1])
+        return NotImplemented
+
+    def __sub__(self, other) -> tuple[int, int]:
+        if isinstance(other, Position):
+            return (self.x - other.x, self.y - other.y)
+        if isinstance(other, tuple) and len(other) == 2:
+            return (self.x - other[0], self.y - other[1])
+        return NotImplemented
+
 
 class Grid:
     def __init__(self, lines: list[str]) -> None:
